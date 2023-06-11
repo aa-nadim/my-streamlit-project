@@ -38,3 +38,21 @@ with model_training:
     st.text(
         "Here you get to choose the hyperparameters of the model and see how the performance changes!"
     )
+
+    sel_col, disp_col = st.columns(2)
+
+    max_dapth = sel_col.slider(
+        "What should be the max_depth of the model?",
+        min_value=10,
+        max_value=100,
+        value=20,
+        step=10,
+    )
+
+    n_estimators = sel_col.selectbox(
+        "How many trees should there be?", options=[100, 200, "No limit"], index=0
+    )
+
+    input_feature = sel_col.text_input(
+        "Which feature should be used as the input feature?"
+    )
